@@ -1,27 +1,31 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { CurewellService } from '../app/curewell-services/curewell.service';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { WidgetModule } from './directive/widget.module';
-import { CommonModule } from '@angular/common';
-import { HighlightDirective } from './highlight.directive';
+import { ViewDoctorComponent } from '../app/curewell-components/view-doctor/view-doctor.component';
+import { UpdateDoctorComponent } from './curewell-components/update-doctor/update-doctor.component';
+import { AddDoctorComponent } from './curewell-components/add-doctor/add-doctor.component';
+import { ViewSpecializationComponent } from './curewell-components/view-specialization/view-specialization.component';
+import { ViewTodaysSurgeryComponent } from './curewell-components/view-todays-surgery/view-todays-surgery.component';
+import { UpdateSurgeryComponent } from './curewell-components/update-surgery/update-surgery.component';
+import { HttpClient, HttpHeaders, HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HighlightDirective
+    ViewDoctorComponent,
+    UpdateDoctorComponent,
+    AddDoctorComponent,
+    ViewSpecializationComponent,
+    ViewTodaysSurgeryComponent,
+    UpdateSurgeryComponent
   ],
   imports: [
-    CommonModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    WidgetModule,
-    
+    BrowserModule, HttpClientModule, FormsModule, AppRoutingModule
   ],
-  providers: [],
+  providers: [HttpClientModule,CurewellService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
